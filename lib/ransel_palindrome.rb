@@ -2,7 +2,22 @@
 
 require_relative "ransel_palindrome/version"
 
-module RanselPalindrome
-  class Error < StandardError; end
-  # Your code goes here...
+class String
+
+  # Returns true for a palindrome, false otherwise.
+  def palindrome?
+    processed_content == processed_content.reverse
+  end
+
+  # Returns the letters in the string.
+  # def letters
+  #   self.chars.select { |character| character.match(/[a-z]/i)}.join
+  # end
+
+  private
+
+    # Returns content for palindrome testing.
+    def processed_content
+      scan(/[a-z]/i).join.downcase
+    end
 end
